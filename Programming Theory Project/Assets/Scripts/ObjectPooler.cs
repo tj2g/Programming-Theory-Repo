@@ -23,4 +23,16 @@ public class ObjectPooler : MonoBehaviour
             obj.transform.SetParent(this.transform);
         }
     }
+
+    public GameObject GetPooledObject()
+    {
+        for (int i = 0; i < pooledObjects.Count; i++)
+        {
+            if (!pooledObjects[i].activeInHierarchy)
+            {
+                return pooledObjects[i];
+            }
+        }
+        return null;
+    }
 }
